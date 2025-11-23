@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voice Translator</title>
+  <link rel="stylesheet" href="Main.css"> 
+</head>
+<body>
+<a href="main.html" class="back-button" aria-label="Back to main page">
+  <span>←</span>
+  <span>Back</span>
+</a>
+
+<div class="container">
+  <h1>🎙️ Voice Translator</h1>
+  <p class="subtitle">Speak in any language, hear it in another • Max 60 seconds per recording</p>
+
+  <!-- Language Selection -->
+  <div class="section">
+    <div class="language-selector">
+      <div class="lang-option">
+        <div class="section-title">From Language</div>
+        <span class="flag-icon" id="srcFlag">🇺🇸</span>
+        <select id="srcLang" aria-label="Source language">
+          <option value="en" data-flag="🇺🇸">English</option>
+          <option value="es" data-flag="🇪🇸">Español</option>
+          <option value="fr" data-flag="🇫🇷">Français</option>
+          <option value="zh" data-flag="🇨🇳">中文（普通话）</option>
+          <option value="vi" data-flag="🇻🇳">Tiếng Việt</option>
+          <option value="pa" data-flag="🇮🇳">ਪੰਜਾਬੀ</option>
+        </select>
+      </div>
+
+      <button class="swap-btn" id="swapBtn" aria-label="Swap languages" title="Swap languages">
+        ⇄
+      </button>
+
+      <div class="lang-option">
+        <div class="section-title">To Language</div>
+        <span class="flag-icon" id="tgtFlag">🇫🇷</span>
+        <select id="tgtLang" aria-label="Target language">
+          <option value="fr" data-flag="🇫🇷">Français</option>
+          <option value="es" data-flag="🇪🇸">Español</option>
+          <option value="en" data-flag="🇺🇸">English</option>
+          <option value="zh" data-flag="🇨🇳">中文（普通话）</option>
+          <option value="vi" data-flag="🇻🇳">Tiếng Việt</option>
+          <option value="pa" data-flag="🇮🇳">ਪੰਜਾਬੀ</option>
+        </select>
+      </div>
+    </div>
+    <div id="langWarning" class="status warning hidden">
+      ⚠️ Source and target languages are the same. Please select different languages.
+    </div>
+  </div>
+
+  <!-- Tips -->
+  <div class="tips">
+    <div class="tips-title">💡 Tips for best results:</div>
+    <ul class="tips-list">
+      <li>Speak clearly and at a normal pace</li>
+      <li>Minimize background noise</li>
+      <li>Stay close to your microphone</li>
+      <li>Keyboard shortcuts: <span class="keyboard-hint">Space</span> to start, <span class="keyboard-hint">Esc</span> to stop</li>
+    </ul>
+  </div>
+
+  <!-- Recording -->
+  <div class="section">
+    <div class="section-title">Record & Translate</div>
+    <div class="recording-controls">
+      <button class="btn btn-primary" id="recordBtn" aria-label="Start recording">
+        🎙️ Start Recording
+      </button>
+      <button class="btn btn-secondary" id="stopBtn" aria-label="Stop recording" disabled>
+        ⏹️ Stop Recording
+      </button>
+    </div>
+
+    <div id="recordingInfo" class="recording-info hidden">
+      <span>🔴 Recording in progress...</span>
+      <span class="timer" id="timer">0:00</span>
+    </div>
+
+    <div id="visualizer" class="visualizer-container hidden">
+      <div class="visualizer-bar"></div>
+      <div class="visualizer-bar"></div>
+      <div class="visualizer-bar"></div>
+      <div class="visualizer-bar"></div>
+      <div class="visualizer-bar"></div>
+      <div class="visualizer-bar"></div>
+      <div class="visualizer-bar"></div>
+      <div class="visualizer-bar"></div>
+      <div class="visualizer-bar"></div>
+      <div class="visualizer-bar"></div>
+      <div class="visualizer-bar"></div>
+      <div class="visualizer-bar"></div>
+    </div>
+
+    <div id="status" class="status info hidden">Ready to record</div>
+
+    <div id="progressBar" class="progress-bar hidden">
+      <div class="progress-fill"></div>
+    </div>
+  </div>
+
+  <!-- Transcriptions -->
+  <div id="transcriptionSection" class="section hidden">
+    <div class="section-title">Transcription</div>
+    <div class="transcription-box">
+      <div class="transcription-label">Original:</div>
+      <div class="transcription-text" id="originalText">—</div>
+    </div>
+    <div class="transcription-box">
+      <div class="transcription-label">Translated:</div>
+      <div class="transcription-text" id="translatedText">—</div>
+    </div>
+  </div>
+
+  <!-- Output -->
+  <div class="section" id="outputSection">
+    <div class="section-title">Translated Audio</div>
+    <div class="audio-controls">
+      <audio id="audioOutput" controls class="hidden" aria-label="Translated audio"></audio>
+      <button class="btn btn-download hidden" id="downloadBtn" aria-label="Download audio">
+        ⬇️ Download
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src = "Main.js"> </script>
+</body>
+</html>
