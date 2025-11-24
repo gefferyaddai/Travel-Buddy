@@ -1,0 +1,121 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+#left-side {
+
+    flex: 1;
+    background: white;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+#main-login{
+    margin-top: 200px;
+    margin-left: -100px;
+
+    width: 400px;
+    font-size: 20px;
+    padding: 30px;
+
+
+
+}
+#main-login h6 {
+    font-size: 16px;
+    margin: 10px 0 5px;
+}
+
+#main-login input {
+    width: 100%;              /* full width inputs */
+    padding: 12px;            /* makes input boxes bigger */
+    font-size: 18px;          /* bigger text inside input */
+    margin-bottom: 20px;      /* spacing */
+    border-radius: 8px;
+    border: 3px solid purple
+}
+#main-login button {
+    padding: 12px 20px;
+    font-size: 18px;          /* bigger button text */
+    border: 3px solid purple;
+    border-radius: 8px;
+    cursor: pointer;
+    color: purple;
+    background-color: white;
+
+
+}
+
+
+
+#login-button:hover{
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(0.97);
+
+}
+#login-button:active{
+    color: white;
+    background-color: purple;
+
+}
+#right-side {
+    flex: 1.5;
+    background: linear-gradient(135deg, #312e81 0%, #7e22ce 50%, #be185d 100%);
+    display: flex;
+    justify-content: center;   /* center the card horizontally */
+    align-items: center;       /* center the card vertically */
+}
+
+/* Glassy card like the reference */
+.hero-card {
+    width: 80%;
+    max-width: 480px;
+    height: 80%;
+    max-height: 520px;
+
+    border-radius: 24px;
+    padding: 32px 32px 0;
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Heading text on the right panel */
+.hero-heading {
+    color: #ffffff;
+    font-size: 26px;
+    line-height: 1.4;
+    font-weight: 700;
+    margin: 0 0 20px;
+}
+
+/* The lady image */
+#lady {
+    align-self: center;
+    width: 900px;          /* make her bigger */
+    transform: translateY(10px);   /* nudge slightly down if you want */
+}
+
+
+#login-checkbox{
+    width: 10px;
+    height:10px;
+}
+#remember-me-checkbox {
+    display: flex;
+    gap: 8px;
+    align-content: center;
+    margin-top: 20px;
+    font-size: 16px;
+}
