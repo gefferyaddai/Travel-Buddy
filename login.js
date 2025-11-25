@@ -18,9 +18,14 @@ function login(){
     }
     else{
 
-    }
-}
+        return false
 
+    }
+    return true
+}
+function loginState(){
+    //if checkbox clickd and login() == true then
+}
 function signup(){
   //  let username = document.getElementById("").value
     // let password = document.getElementById("").value

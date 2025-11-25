@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Travel Buddy – Login / Sign Up</title>
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+
+<div id="auth-wrapper" class="show-login">
+  <div class="auth-slider">
+
+    <!-- ============ LOGIN SCREEN ============ -->
+    <section class="auth-page login-page">
+      <div class="panel">
+
+        <!-- Left: gradient + lady -->
+        <div class="panel-left gradient-panel">
+          <div class="hero-card">
+            <h2 class="hero-heading">
+              Start your journey by one click, explore beautiful world!
+            </h2>
+            <img class="hero-lady" src="p_lady_remove_background%20.png" alt="Traveler holding camera">
+          </div>
+        </div>
+
+        <!-- Right: login form -->
+        <div class="panel-right white-panel">
+          <div class="login-form">
+            <h1 class="form-title">WELCOME BACK</h1>
+
+            <h6 class="field-label">USERNAME</h6>
+            <input
+                    type="text"
+                    name="login-username"
+                    class="text-input login-username"
+                    placeholder="Enter Username">
+
+            <h6 class="field-label">PASSWORD</h6>
+            <input
+                    type="password"
+                    name="login-password"
+                    class="text-input login-password"
+                    placeholder="Enter Password">
+
+            <div class="remember-row">
+              <label class="remember-left">
+                <input type="checkbox" class="login-checkbox">
+                <span>Remember me</span>
+              </label>
+              <a href="#" class="forgot-link">Forgot password</a>
+            </div>
+
+            <button class="primary-btn login-btn" onclick="login()">LOGIN</button>
+
+            <p class="switch-text">
+              Don't have an account?
+              <button type="button" id="go-signup" class="link-btn">SIGNUP</button>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ SIGNUP SCREEN ============ -->
+    <section class="auth-page signup-page">
+      <div class="panel">
+
+        <!-- Left: signup form -->
+        <div class="panel-left white-panel">
+          <div class="signup-form">
+            <h1 class="form-title">Sign Up</h1>
+            <p class="subtitle">Create your Travel Buddy account</p>
+
+            <div class="row">
+              <div class="field">
+                <label class="field-label">First Name</label>
+                <input type="text" class="text-input" placeholder="John">
+              </div>
+              <div class="field">
+                <label class="field-label">Last Name</label>
+                <input type="text" class="text-input" placeholder="Doe">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="field-label">Username</label>
+              <input type="text" class="text-input" placeholder="JohnDoe123">
+            </div>
+
+            <div class="row">
+              <div class="field">
+                <label class="field-label">Password</label>
+                <input type="password" class="text-input" placeholder="********">
+              </div>
+              <div class="field">
+                <label class="field-label">Confirm Password</label>
+                <input type="password" class="text-input" placeholder="********">
+              </div>
+            </div>
+
+            <button class="primary-btn signup-btn">Create Account</button>
+
+            <p class="switch-text">
+              Already have an account?
+              <button type="button" id="go-login" class="link-btn">Log in</button>
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: gradient only -->
+        <div class="panel-right gradient-panel"></div>
+
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script src="auth.js"></script>
+<!-- If you have login logic in an existing login.js, include it after and adapt to classes -->
+<!-- <script src="login.js"></script> -->
+</body>
+</html>

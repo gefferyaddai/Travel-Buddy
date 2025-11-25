@@ -1,0 +1,258 @@
+/* ----- Global ----- */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    overflow: hidden; /* no scrollbars during slide */
+}
+
+/* Wrapper for the whole auth experience */
+#auth-wrapper {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* The sliding strip that contains both pages */
+.auth-slider {
+    display: flex;
+    width: 200vw;       /* 2 screens side-by-side */
+    height: 100%;
+    transition: transform 0.7s ease-in-out;
+}
+
+/* Each page = full viewport area */
+.auth-page {
+    width: 100vw;
+    height: 100vh;
+}
+
+/* States */
+#auth-wrapper.show-login .auth-slider {
+    transform: translateX(0);
+}
+
+#auth-wrapper.show-signup .auth-slider {
+    transform: translateX(-100vw);
+}
+
+/* ----- Shared 2-panel layout inside each page ----- */
+.panel {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.panel-left,
+.panel-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Make hero side a bit wider on login and signup */
+.login-page .panel-left,
+.signup-page .panel-right {
+    flex: 1.4;
+}
+
+/* Backgrounds */
+.gradient-panel {
+    background: linear-gradient(135deg, #312e81 0%, #7e22ce 50%, #be185d 100%);
+}
+
+.white-panel {
+    background: #ffffff;
+}
+
+/* ----- Hero card (login left side) ----- */
+.hero-card {
+    width: 80%;
+    max-width: 480px;
+    max-height: 520px;
+    border-radius: 24px;
+    padding: 32px 32px 0;
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.hero-heading {
+    color: #ffffff;
+    font-size: 26px;
+    line-height: 1.4;
+    font-weight: 700;
+    margin: 0 0 20px;
+}
+
+.hero-lady {
+    align-self: center;
+    width: 900px;
+    transform: translateY(-33px); /* moving on the y axis */
+}
+
+/* ----- Login & Signup forms (shared styles) ----- */
+.login-form,
+.signup-form {
+    width: 400px;
+    max-width: 90%;
+    padding: 30px 10px;
+}
+
+.form-title {
+    font-size: 32px;
+    margin: 0 0 8px;
+    text-align: left;
+}
+
+.subtitle {
+    margin: 0 0 25px;
+    color: #555;
+    font-size: 14px;
+}
+
+.field-label {
+    font-size: 13px;
+    margin: 10px 0 4px;
+    letter-spacing: 0.03em;
+}
+
+.text-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    outline: none;
+    box-sizing: border-box;
+    margin-bottom: 6px;
+}
+
+.text-input:hover{
+    border-color: #7e22ce;
+}
+
+/* Rows for pairs of inputs */
+.row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Remember / forgot row */
+.remember-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 14px 0 18px;
+    font-size: 14px;
+}
+
+.remember-left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.login-checkbox {
+    width: 16px;
+    height: 16px;
+}
+
+.forgot-link {
+    font-size: 14px;
+    color: #7e22ce;
+    text-decoration: none;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+/* Buttons */
+.primary-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 0;
+    cursor: pointer;
+    background-color: #7e22ce;
+    color: white;
+    font-weight: 600;
+    margin-top: 4px;
+    transition: transform 0.1s ease, box-shadow 0.1s ease, opacity 0.1s ease;
+}
+
+.primary-btn:hover {
+    opacity: 0.95;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transform: translateY(-1px);
+}
+
+.primary-btn:active {
+    transform: scale(0.98);
+}
+
+/* Switch text under buttons */
+.switch-text {
+    margin-top: 12px;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Link-style button (for SIGNUP / Log in) */
+.link-btn {
+    border: none;
+    background: none;
+    padding: 0;
+    margin-left: 4px;
+    color: #7e22ce;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.link-btn:hover {
+    text-decoration: underline;
+}
+
+/* ----- Responsive: stack vertically on narrow screens ----- */
+@media (max-width: 900px) {
+    .panel {
+        flex-direction: column;
+    }
+
+    .panel-left,
+    .panel-right,
+    .login-page .panel-left,
+    .signup-page .panel-right {
+        flex: none;
+        width: 100%;
+        height: 50%;
+    }
+
+    .hero-card {
+        max-width: 90%;
+        max-height: none;
+    }
+
+    .login-form,
+    .signup-form {
+        width: 90%;
+    }
+}
